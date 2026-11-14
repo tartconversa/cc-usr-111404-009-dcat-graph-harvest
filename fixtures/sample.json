@@ -1,0 +1,13 @@
+{
+  "source_id": "source-a",
+  "url": "https://example.test/source",
+  "status": 200,
+  "headers": [
+    [
+      "Content-Type",
+      "application/n-quads"
+    ]
+  ],
+  "body_base64": "PHVybjpkYXRhOmE+IDxodHRwOi8vd3d3LnczLm9yZy9ucy9kY2F0I2Rpc3RyaWJ1dGlvbj4gXzpkIC4KXzpkIDxodHRwOi8vd3d3LnczLm9yZy9ucy9kY2F0I2Rvd25sb2FkVVJMPiA8aHR0cHM6Ly9leGFtcGxlLnRlc3QvZGF0YS5jc3Y+IC4K",
+  "metadata": {}
+}

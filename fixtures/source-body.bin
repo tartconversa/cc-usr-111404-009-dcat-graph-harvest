@@ -1,0 +1,2 @@
+<urn:data:a> <http://www.w3.org/ns/dcat#distribution> _:d .
+_:d <http://www.w3.org/ns/dcat#downloadURL> <https://example.test/data.csv> .
