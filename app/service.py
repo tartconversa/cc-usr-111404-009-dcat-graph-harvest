@@ -1,9 +1,10 @@
-"""将来源字节身份与当前响应概览一起交给调用者。"""
+"""将来源字节身份与当前响应概览一起交给调用者；授权目录采集另见collect_catalog。"""
 import json
 import sys
 from pathlib import Path
 from .source import from_packet,fetch
 from .baseline import analyze
+from .catalog import Scope,harvest
 
 def inspect_response(response):
     return {'source_id':response.source_id,'response_sha256':response.sha256,'summary':analyze(response)}
@@ -11,6 +12,10 @@ def inspect_response(response):
 def inspect(packet):return inspect_response(from_packet(packet))
 
 def collect_one(url,source_id,**kwargs):return inspect_response(fetch(url,source_id,**kwargs))
+
+def collect_catalog(entry,source_id,scope,**kwargs):
+    if isinstance(scope,dict):scope=Scope(scope['origin'],scope.get('path_prefix','/'))
+    return harvest(entry,source_id,scope,**kwargs)
 
 def main():
     if len(sys.argv)!=2:raise SystemExit('请指定来源响应JSON路径')
